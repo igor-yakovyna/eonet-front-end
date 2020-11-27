@@ -1,0 +1,14 @@
+<div *ngIf="naturalEvent">
+
+    <h2>{{naturalEvent.title | uppercase}} Details</h2>
+    <div><span>id: </span>{{naturalEvent.id}}</div>
+    <div>
+      <label>Title:
+          {{naturalEvent.title}}
+      </label>
+      <label>Description:
+          <input [(ngModel)]="naturalEvent.description" placeholder="description"/>
+        </label>
+    </div>
+  
+  </div>
