@@ -1,0 +1,31 @@
+<div class="row">
+    <div class="col-3">
+        <label for="sourcesSelect">Sources:</label>
+        <select class="custom-select" id="sourcesSelect" required>
+          <option selected disabled value="">Choose...</option>
+          <option>...</option>
+        </select>
+      </div>
+
+      <div class="col-3">
+        <label>Status:</label><br>
+        <div class="custom-control custom-radio custom-control-inline">
+            <input type="radio" id="statusAllRadioInput" name="statusRadioInput" class="custom-control-input">
+            <label class="custom-control-label" for="statusAllRadioInput">All</label>
+          </div>
+          <div class="custom-control custom-radio custom-control-inline">
+            <input type="radio" id="statusOpenRadioInput" name="statusRadioInput" class="custom-control-input">
+            <label class="custom-control-label" for="statusOpenRadioInput">Open</label>
+          </div>
+          <div class="custom-control custom-radio custom-control-inline">
+            <input type="radio" id="statusClosedRadioInput" name="statusRadioInput" class="custom-control-input">
+            <label class="custom-control-label" for="statusClosedRadioInput">Closed</label>
+          </div>
+      </div>
+
+      <div class="col-3">
+        <label for="daysRangeInput">Days:</label>
+        <input type="range" class="custom-range" min="0" max="365" step="1" id="daysRangeInput" oninput="daysRangeOutput.value = daysRangeInput.value">
+        <output id="daysRangeOutput"></output>
+      </div>
+</div>

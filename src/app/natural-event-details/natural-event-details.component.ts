@@ -7,8 +7,8 @@ import { NaturalEvent } from '../natural-event';
   styleUrls: ['./natural-event-details.component.css']
 })
 export class NaturalEventDetailsComponent implements OnInit {
-  @Input() naturalEvent: NaturalEvent;
-  
+  @Input() naturalEvent: NaturalEvent = {};
+
   constructor() { }
 
   ngOnInit(): void {

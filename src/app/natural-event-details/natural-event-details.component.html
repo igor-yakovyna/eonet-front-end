@@ -1,14 +1,23 @@
 <div *ngIf="naturalEvent">
-
-    <h2>{{naturalEvent.title | uppercase}} Details</h2>
-    <div><span>id: </span>{{naturalEvent.id}}</div>
-    <div>
-      <label>Title:
-          {{naturalEvent.title}}
-      </label>
-      <label>Description:
-          <input [(ngModel)]="naturalEvent.description" placeholder="description"/>
-        </label>
-    </div>
   
+  <div>
+    <label>ID:</label>
+    {{naturalEvent.id}}
   </div>
+  <div>
+    <label>Title:</label>
+    {{naturalEvent.title}}
+  </div>
+  <div>
+    <label>Description:</label>
+    {{naturalEvent.description}}
+  </div>
+  <div>
+    <label>Sources:</label>
+    <a *ngFor="let source of naturalEvent.sources" [href]="source.url"> {{source.id}}</a>
+  </div>
+  <div>
+    <label>Geometries:</label>
+    <div *ngFor="let geometries of naturalEvent.geometries"> {{geometries.date}}: [ {{geometries.coordinates}} ]</div>
+  </div>
+</div>

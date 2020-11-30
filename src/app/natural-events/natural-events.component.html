@@ -1,10 +1,22 @@
-<h2>Events:</h2>
-<ul class="events">
-    <li *ngFor="let naturalEvent of naturalEvents"
-      [class.selected]="naturalEvent === selectedNaturalEvent"
-      (click)="onSelect(naturalEvent)">
-        <span class="badge">{{naturalEvent.id}}</span> {{naturalEvent.title}}
-    </li>
-</ul>
-
-<app-natural-event-details [naturalEvent]="selectedNaturalEvent"></app-natural-event-details>
+<div class="row">
+  <div class="col-8">
+    <h2>Events:</h2>
+    <app-natural-events-filter></app-natural-events-filter>
+    <div style="max-height: 50em" class="overflow-auto">
+      <ul class="list-group">
+        <li class="list-group-item list-group-item-light list-group-item-action" 
+         *ngFor="let naturalEvent of naturalEvents" 
+         [class.active]="naturalEvent === selectedNaturalEvent"
+         [class.list-group-item-dark]="naturalEvent.isClosed === true"
+         (click)="onSelect(naturalEvent)">
+          <span class="badge badge-info">{{naturalEvent.id}}</span> 
+          <span style="margin-left: 10px;">{{naturalEvent.title}}</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="col-4">
+    <h2>Event Details:</h2>
+    <app-natural-event-details [naturalEvent]="selectedNaturalEvent"></app-natural-event-details>
+  </div>
+</div>

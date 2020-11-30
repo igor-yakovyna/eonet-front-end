@@ -9,8 +9,8 @@ import { NaturalEventsService } from '../natural-events.service';
 })
 export class NaturalEventsComponent implements OnInit {
 
-  naturalEvents: NaturalEvent[];
-  selectedNaturalEvent: NaturalEvent;
+  naturalEvents: NaturalEvent[] = [];
+  selectedNaturalEvent: NaturalEvent = {};
 
   constructor(private naturalEventsService: NaturalEventsService) { }
 
