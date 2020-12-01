@@ -1,4 +1,4 @@
-export interface EventCoordinates {
+export interface EventGeometries {
     date?: string;
     coordinates?: number[];
 }

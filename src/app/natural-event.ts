@@ -1,5 +1,5 @@
 import { EventSource } from './event-source';
-import { EventCoordinates } from './event-coordinates';
+import { EventGeometries } from './event-geometries';
 
 export interface NaturalEvent {
     id?: string;
@@ -7,5 +7,5 @@ export interface NaturalEvent {
     description?: string;
     isClosed?: boolean;
     sources?: EventSource[];
-    coordinates?: EventCoordinates[];
+    geometries?: EventGeometries[];
 }

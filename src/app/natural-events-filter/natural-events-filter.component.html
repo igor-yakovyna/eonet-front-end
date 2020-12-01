@@ -1,31 +1,45 @@
 <div class="row">
-    <div class="col-3">
+    <div class="col-4">
         <label for="sourcesSelect">Sources:</label>
-        <select class="custom-select" id="sourcesSelect" required>
+        <select class="custom-select" id="sourcesSelect"
+        [(ngModel)]="selectedEventSource" (change)="onEventSourceChange(selectedEventSource)">
           <option selected disabled value="">Choose...</option>
-          <option>...</option>
+          <option *ngFor="let eventSource of eventSources" [ngValue]="eventSource">
+            <span >{{eventSource.id}}</span> 
+          </option>
         </select>
       </div>
 
-      <div class="col-3">
+      <div class="col-4">
         <label>Status:</label><br>
         <div class="custom-control custom-radio custom-control-inline">
-            <input type="radio" id="statusAllRadioInput" name="statusRadioInput" class="custom-control-input">
+            <input type="radio" id="statusAllRadioInput" name="statusRadioInput" class="custom-control-input"
+            [checked]="selectedEventStatus === ' '"
+            (change)="onEventStatusChange(' ')">
             <label class="custom-control-label" for="statusAllRadioInput">All</label>
           </div>
           <div class="custom-control custom-radio custom-control-inline">
-            <input type="radio" id="statusOpenRadioInput" name="statusRadioInput" class="custom-control-input">
+            <input type="radio" id="statusOpenRadioInput" name="statusRadioInput" class="custom-control-input"
+            [checked]="selectedEventStatus === 'open'"
+            (change)="onEventStatusChange('open')">
             <label class="custom-control-label" for="statusOpenRadioInput">Open</label>
           </div>
           <div class="custom-control custom-radio custom-control-inline">
-            <input type="radio" id="statusClosedRadioInput" name="statusRadioInput" class="custom-control-input">
+            <input type="radio" id="statusClosedRadioInput" name="statusRadioInput" class="custom-control-input"
+            [checked]="selectedEventStatus === 'closed'"
+            (change)="onEventStatusChange('closed')">
             <label class="custom-control-label" for="statusClosedRadioInput">Closed</label>
           </div>
       </div>
 
-      <div class="col-3">
-        <label for="daysRangeInput">Days:</label>
-        <input type="range" class="custom-range" min="0" max="365" step="1" id="daysRangeInput" oninput="daysRangeOutput.value = daysRangeInput.value">
-        <output id="daysRangeOutput"></output>
+      <div class="col-4">
+        <label for="daysRangeInput">Days:</label><br>
+        <div class="d-inline-block mr-2">
+            <input type="range" class="custom-range" min="1" max="365" step="1" id="daysRangeInput" oninput="daysRangeOutput.value = daysRangeInput.value"
+            (change)="onEventDaysChange($event.target.value)">
+        </div>
+        <div style="margin-top: -15px;" class="d-inline-block ml-2 align-middle">
+            <output id="daysRangeOutput">50</output>
+        </div>
       </div>
 </div>
