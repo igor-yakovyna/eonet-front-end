@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter} from '@angular/core';
 import { EventSource } from '../event-source';
 import { NaturalEvent } from '../natural-event';
 import { NaturalEventsService } from '../natural-events.service';
@@ -10,12 +10,12 @@ import { NaturalEventsService } from '../natural-events.service';
 })
 export class NaturalEventsFilterComponent implements OnInit {
 
-  filteredNaturalEvents: NaturalEvent[] = [];
+  @Output() filteredNaturalEventsEmit =  new EventEmitter<NaturalEvent[]>();
 
   eventSources: EventSource[] = [];
   selectedEventSource: EventSource = {};
   selectedEventStatus: string = ' ';
-  selectedEventDays: number = 1;
+  selectedEventDays: number = 10;
 
   constructor(private naturalEventsService: NaturalEventsService) { }
 
@@ -39,7 +39,7 @@ export class NaturalEventsFilterComponent implements OnInit {
 
   getFilteredNaturalEvents(): void {
     this.naturalEventsService.getFilteredNaturalEvents(this.selectedEventSource.id ?? ' ', this.selectedEventStatus, this.selectedEventDays)
-      .subscribe(events => this.filteredNaturalEvents = events);
+      .subscribe(events => this.filteredNaturalEventsEmit.emit(events));
   }
 
   getEventSources(): void {

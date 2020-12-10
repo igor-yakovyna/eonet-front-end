@@ -1,4 +1,4 @@
-<div class="row">
+<div class="row mb-2">
     <div class="col-4">
         <label for="sourcesSelect">Sources:</label>
         <select class="custom-select" id="sourcesSelect"
@@ -35,11 +35,12 @@
       <div class="col-4">
         <label for="daysRangeInput">Days:</label><br>
         <div class="d-inline-block mr-2">
-            <input type="range" class="custom-range" min="1" max="365" step="1" id="daysRangeInput" oninput="daysRangeOutput.value = daysRangeInput.value"
-            (change)="onEventDaysChange($event.target.value)">
+            <input type="range" class="custom-range" min="1" max="365" step="1" id="daysRangeInput"
+            [(ngModel)]="selectedEventDays"
+            (change)="onEventDaysChange(selectedEventDays)">
         </div>
         <div style="margin-top: -15px;" class="d-inline-block ml-2 align-middle">
-            <output id="daysRangeOutput">50</output>
+          <output id="daysRangeOutput">{{selectedEventDays}}</output>
         </div>
       </div>
 </div>

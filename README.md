@@ -4,7 +4,13 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## Development server
 
+Run `npm install` command to install a package, and any packages that it depends on.
+
+Run `npm install -g @angular/cli ` to install the Angular CLI .
+
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+
+Before run the app `naturalEventsHost` in the natural-events.service.ts need to be updated to the host where backend app is running.
 
 ## Code scaffolding
 

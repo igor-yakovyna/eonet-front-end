@@ -26,4 +26,10 @@ export class NaturalEventsComponent implements OnInit {
     this.naturalEventsService.getNaturalEvents()
       .subscribe(events => this.naturalEvents = events);
   }
+
+  filtersAplied(filteredNaturalEvents: NaturalEvent[]): void {
+    if (filteredNaturalEvents) {
+      this.naturalEvents = filteredNaturalEvents;
+    }
+  }
 }
